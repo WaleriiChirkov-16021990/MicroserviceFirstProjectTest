@@ -15,7 +15,7 @@
     <name>demo</name>
     <description>demo</description>
     <modules>
-        <module>reader-service</module>
+        <module>book-service</module>
         <module>reader-service</module>
     </modules>
     <properties>

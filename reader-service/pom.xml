@@ -10,7 +10,8 @@
     </parent>
 
     <groupId>ru.chirkov</groupId>
-    <artifactId>book-service</artifactId>
+    <artifactId>reader-service</artifactId>
+
 
     <dependencies>
         <dependency>
