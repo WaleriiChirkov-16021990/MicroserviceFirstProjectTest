@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -12,7 +14,9 @@ import java.util.List;
 @Getter
 @Setter
 //@Access(AccessType.FIELD)
-public class Author {
+public class Author implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 7771028347191988404L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
