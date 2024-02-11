@@ -33,7 +33,6 @@ public class Issue implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    @NotNull
     @Min(value = 0, message = "The id must be greater than or equal to 0")
     @Max(value = 9223372036854775807L, message = "bookId must be less than or equal to 9223372036854775807")
     public Long getId() {

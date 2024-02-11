@@ -1,4 +1,4 @@
-package ru.chirkov.issueServiceApp.api;
+package ru.chirkov.issueServiceApp.api.controller;
 
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping(value = "/issues", consumes = "application/json")
+@RequestMapping(value = "/issues")
 public class IssueController {
     private final IssueService issueService;
     private final ModelMapper mapper;

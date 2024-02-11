@@ -1,4 +1,4 @@
-package ru.chirkov.bookServiceApp.api;
+package ru.chirkov.bookServiceApp.api.controller;
 
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(value = "/books", produces = "application/json")
+@RequestMapping(value = "/books")
 public class BookController {
 
     private final BookService bookService;

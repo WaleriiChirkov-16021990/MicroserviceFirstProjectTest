@@ -1,4 +1,4 @@
-package ru.chirkov.readerServiceApp.api;
+package ru.chirkov.readerServiceApp.api.controller;
 
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping(value = "/readers", produces = "application/json")
+@RequestMapping(value = "/readers")
 public class ReaderController {
 
     private final ReaderService readerService;
@@ -33,7 +33,7 @@ public class ReaderController {
 
     @GetMapping
     public ResponseEntity<List<ReaderDto>> getBooks() {
-        return ResponseEntity.ok(readerService.getBooks()
+        return ResponseEntity.ok(readerService.getReaders()
                 .stream()
                 .map((element) -> modelMapper.map(element, ReaderDto.class))
                 .collect(Collectors.toList()));
@@ -94,8 +94,8 @@ public class ReaderController {
             throw new CustomValidationException(
                     AddErrorMessage.addErrorMessageFromBindingResult(result));
         }
-        readerService.updateBook(id, reader);
-        return ResponseEntity.ok(modelMapper.map(reader, ReaderDto.class));
+        ;
+        return ResponseEntity.ok(modelMapper.map(readerService.updateReader(id, reader), ReaderDto.class));
     }
 
     @PatchMapping(value = "/{id}/{name}")

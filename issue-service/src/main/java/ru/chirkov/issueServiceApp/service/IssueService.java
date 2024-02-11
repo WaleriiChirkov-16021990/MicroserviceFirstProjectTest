@@ -9,6 +9,8 @@ import ru.chirkov.issueServiceApp.model.Issue;
 import ru.chirkov.issueServiceApp.util.customeException.BadRequestIssueCustomException;
 import ru.chirkov.issueServiceApp.util.customeException.NotFoundIssueCustomException;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -41,7 +43,7 @@ public class IssueService {
     }
 
     public Issue createIssue(Issue issue) {
-        try{
+        try {
             return issueRepository.save(issue);
         } catch (Exception e) {
             throw new BadRequestIssueCustomException("Can't create issue", e);
@@ -56,5 +58,23 @@ public class IssueService {
     public List<Issue> getIssuesByBookId(Long bookId) {
         return issueRepository.getIssuesByBookId(bookId).orElseThrow(() ->
                 new NotFoundIssueCustomException("Issues with bookId " + bookId + " not found"));
+    }
+
+    public Date startOfYear() {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, 2022);
+        cal.set(Calendar.MONTH, Calendar.JANUARY);
+        cal.set(Calendar.DAY_OF_MONTH, 1);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        return cal.getTime();
+    }
+
+    public Date endOfYear() {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, 2024);
+        cal.set(Calendar.MONTH, Calendar.JANUARY);
+        cal.set(Calendar.DAY_OF_MONTH, 31);
+        cal.set(Calendar.HOUR_OF_DAY, 23);
+        return cal.getTime();
     }
 }
