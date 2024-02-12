@@ -8,8 +8,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.chirkov.issueServiceApp.dto.IssueDto;
+import ru.chirkov.issueServiceApp.dto.IssueDtoFull;
 import ru.chirkov.issueServiceApp.model.Issue;
 import ru.chirkov.issueServiceApp.service.IssueService;
+import ru.chirkov.issueServiceApp.service.provider.BookProvider;
+import ru.chirkov.issueServiceApp.service.provider.ReaderProvider;
 import ru.chirkov.issueServiceApp.util.customValidator.IssueCustomValidator;
 import ru.chirkov.issueServiceApp.util.customeException.BadRequestIssueCustomException;
 import ru.chirkov.issueServiceApp.util.customeException.MyValidException;
@@ -27,6 +30,8 @@ public class IssueController {
     private final IssueService issueService;
     private final ModelMapper mapper;
     private final IssueCustomValidator customValidator;
+    private final BookProvider bookProvider;
+    private final ReaderProvider readerProvider;
 
     @GetMapping
     public ResponseEntity<List<IssueDto>> getIssues() {
@@ -36,8 +41,15 @@ public class IssueController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<IssueDto> getIssue(@PathVariable Long id) throws NotFoundIssueCustomException {
-        return ResponseEntity.ok(mapper.map(issueService.getIssueById(id), IssueDto.class));
+    public ResponseEntity<IssueDtoFull> getIssue(@PathVariable Long id) throws NotFoundIssueCustomException {
+        Issue issue = issueService.getIssueById(id);
+        IssueDtoFull issueDtoFull = new IssueDtoFull(
+                issue.getId(),
+                issue.getLocalDate(),
+                readerProvider.getReaderById(issue.getReaderId()),
+                bookProvider.getBookById(issue.getBookId()));
+
+        return ResponseEntity.ok(issueDtoFull);
     }
 
     @GetMapping("/reader/{readerId}")
