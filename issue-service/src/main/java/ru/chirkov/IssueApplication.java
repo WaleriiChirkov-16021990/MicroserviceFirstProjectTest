@@ -44,6 +44,7 @@ public class IssueApplication {
                 issue.setBookId(bookProvider.getRandomBookId());
                 issue.setReaderId(readerProvider.getRandomReaderId());
                 issueService.createIssue(issue);
+                Thread.sleep(2000);
             }
         };
     }
