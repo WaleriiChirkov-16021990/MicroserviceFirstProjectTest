@@ -23,7 +23,7 @@ public class ReaderService {
      *
      * @return the list of readers
      */
-    public List<Reader> getBooks() {
+    public List<Reader> getReaders() {
         return readerRepository.findAll();
     }
 
@@ -86,7 +86,7 @@ public class ReaderService {
      * @param reader the updated reader object
      * @return the updated reader object
      */
-    public Reader updateBook(Long id, Reader reader) {
+    public Reader updateReader(Long id, Reader reader) {
         reader.setId(id);
         return readerRepository.save(reader);
     }

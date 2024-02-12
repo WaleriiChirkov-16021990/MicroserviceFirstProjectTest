@@ -1,5 +1,5 @@
 server:
-  port: 8085
+  port: 8089
 eureka:
   client:
     serviceUrl:
@@ -16,7 +16,7 @@ spring:
     #database: h2 #same as database-platform, it doesn't effect schema-{platform}.sql and data-{platform}.sql names
     #database-platform: org.hibernate.dialect.H2Dialect
   datasource:
-    url: jdbc:h2:mem:reader #ALWAYS, EMBEDDED or NEVER will be calculated from h2
+    url: jdbc:h2:mem:issue #ALWAYS, EMBEDDED or NEVER will be calculated from h2
     username: wch
     password: password
     driverClassName: org.h2.Driver
@@ -31,7 +31,7 @@ spring:
     console:
       enabled: true
   application:
-    name: reader-service
+    name: issue-service
 #      path: /h2
 
 logging:
@@ -40,6 +40,6 @@ logging:
     #org.hibernate.SQL: TRACE
     #spring.sql: TRACE
     #javax.sql: TRACE
-#        org.h2.jdbc: TRACE
+    #        org.h2.jdbc: TRACE
     org.springframework.jdbc: TRACE
 debug: false

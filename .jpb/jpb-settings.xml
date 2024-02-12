@@ -10,4 +10,13 @@
     <option name="isLombokNoArgsConstructor" value="true" />
     <option name="scaffoldingLanguage" />
   </component>
+  <component name="PersistenceUnitSettings">
+    <persistence-units>
+      <persistence-unit name="Default">
+        <packages>
+          <package value="ru.chirkov" />
+        </packages>
+      </persistence-unit>
+    </persistence-units>
+  </component>
 </project>

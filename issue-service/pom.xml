@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>ru.chirkov</groupId>
-    <artifactId>reader-service</artifactId>
+    <artifactId>issue-service</artifactId>
 
 
     <dependencies>
@@ -56,6 +56,10 @@
             <version>0.15</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.modelmapper</groupId>
             <artifactId>modelmapper</artifactId>
