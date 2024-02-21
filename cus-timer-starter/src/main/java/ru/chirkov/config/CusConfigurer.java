@@ -14,9 +14,9 @@ public class CusConfigurer {
         return new TimerAspect();
     }
 
-//    @Bean
-//    @ConditionalOnProperty(name = "cus.timer.execute.for.return.object", havingValue = "enable")
-//    ExecutionForReturnObject executionForReturnObject() {
-//        return new ExecutionForReturnObject();
-//    }
+    @Bean
+    @ConditionalOnProperty(name = "cus.timer.execute.for.return.object", havingValue = "enable")
+    ExecutionForReturnObject executionForReturnObject() {
+        return new ExecutionForReturnObject();
+    }
 }
