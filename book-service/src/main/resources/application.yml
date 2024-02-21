@@ -43,3 +43,16 @@ logging:
 #        org.h2.jdbc: TRACE
     org.springframework.jdbc: TRACE
 debug: false
+cus:
+  timer:
+    execute:
+      for:
+        return:
+          object: enable
+
+#cus:
+#  timer:
+#    execute:
+#      for:
+#        return:
+#          object: enable

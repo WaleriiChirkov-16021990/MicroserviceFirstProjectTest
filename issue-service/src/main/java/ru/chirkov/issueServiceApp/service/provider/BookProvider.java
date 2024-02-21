@@ -8,6 +8,7 @@ import org.springframework.cloud.client.loadbalancer.reactive.ReactorLoadBalance
 import org.springframework.stereotype.Service;
 
 import org.springframework.web.reactive.function.client.*;
+import ru.chirkov.annotation.Timer;
 import ru.chirkov.issueServiceApp.model.Book;
 
 import java.io.Serializable;
@@ -15,6 +16,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 @Transactional
+@Timer
 public class BookProvider {
     private final WebClient webClient;
     private final EurekaClient eurekaClient;
