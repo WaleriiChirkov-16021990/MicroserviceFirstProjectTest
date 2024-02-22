@@ -36,9 +36,9 @@ public class BookProvider {
                 .retrieve()
                 .bodyToMono(Book.class)
                 .block();
+        assert book != null;
         return book.getId();
     }
-
 
     public Book getBookById(Long id) {
         return webClient
