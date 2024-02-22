@@ -8,12 +8,14 @@ import lombok.Data;
 import org.springframework.cloud.client.loadbalancer.reactive.ReactorLoadBalancerExchangeFilterFunction;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+import ru.chirkov.annotation.Timer;
 import ru.chirkov.issueServiceApp.model.Reader;
 
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 @Transactional
+@Timer
 public class ReaderProvider {
 
     private final WebClient webClient;

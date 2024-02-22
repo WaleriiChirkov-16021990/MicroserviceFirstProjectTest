@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import ru.chirkov.annotation.Timer;
 import ru.chirkov.bookServiceApp.model.Author;
 import ru.chirkov.bookServiceApp.model.Book;
 import ru.chirkov.bookServiceApp.service.AuthorService;
@@ -54,6 +55,7 @@ public class BookServiceApplication {
      * @return a command line runner that generates and saves random books
      */
     @Bean
+    @Timer
     CommandLineRunner commandLineRunner2(BookService bookService, AuthorService authorService, Faker faker) {
         return args -> {
             for (int i = 0; i < 30; i++) {

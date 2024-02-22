@@ -12,7 +12,7 @@
   </component>
   <component name="PersistenceUnitSettings">
     <persistence-units>
-      <persistence-unit name="Default">
+      <persistence-unit name="Default" persistenceXmlPath="pom.xml">
         <packages>
           <package value="ru.chirkov" />
         </packages>
